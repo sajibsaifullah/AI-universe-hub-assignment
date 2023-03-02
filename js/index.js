@@ -1,12 +1,13 @@
 const loadCardData = () => {
     fetch('https://openapi.programming-hero.com/api/ai/tools')
         .then(res => res.json())
-        .then(data => displayCardData(data.data.tools));
+        .then(data => displayCardData(data.data.tools.slice(0, 6)));
 }
 
 const displayCardData = (cards) => {
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = '';
     cards.forEach(card => {
-        const cardContainer = document.getElementById('card-container');
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('col');
         cardDiv.innerHTML = `
@@ -35,6 +36,12 @@ const displayCardData = (cards) => {
         cardContainer.appendChild(cardDiv);
         // console.log(card);
     });
+}
+
+const displayAllCard = () => {
+    fetch('https://openapi.programming-hero.com/api/ai/tools')
+        .then(res => res.json())
+        .then(data => displayCardData(data.data.tools));
 }
 
 loadCardData();

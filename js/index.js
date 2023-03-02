@@ -11,19 +11,30 @@ const displayCardData = (cards) => {
         cardDiv.classList.add('col');
         cardDiv.innerHTML = `
         <div class="card h-100">
-                <img src="${card.image}" class="card-img-top" alt="...">
+                <img src="${card.image}" class="card-img-top p-3 rounded-5 h-75" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.</p>
+                <h5 class="card-title">Features</h5>
+                <ol>
+                    <li>${card.features[0]}</li>
+                    <li>${card.features[1]}</li>
+                    <li>${card.features[2]}</li>
+                </ol>
             </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title">${card.name}</h5>
+                    <p>
+                        <i class="fa-solid fa-calendar-days me-1"></i>
+                        ${card.published_in}
+                    </p>
+                </div>
+                <i class="fa-solid fa-arrow-right-long text-danger"></i>
             </div>
         </div>
         `;
         cardContainer.appendChild(cardDiv);
-        console.log(card.image);
+        // console.log(card);
     });
 }
+
 loadCardData();

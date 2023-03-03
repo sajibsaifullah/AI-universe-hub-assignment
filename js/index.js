@@ -29,7 +29,7 @@ const displayCardData = (cards) => {
                         ${card.published_in}
                     </p>
                 </div>
-                <i class="fa-solid fa-arrow-right-long text-danger"></i>
+                <i id="modalArrow" onclick="fetchModalData('${card.id}')" class="fa-solid fa-arrow-right-long text-danger" data-bs-toggle="modal" data-bs-target="#cardModal"></i>
             </div>
         </div>
         `;
@@ -37,6 +37,22 @@ const displayCardData = (cards) => {
         // console.log(card);
     });
 }
+
+const fetchModalData = (id) => {
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => showModalData(data));
+}
+const showModalData = data => {
+    // console.log(data);
+    const modalShow = document.getElementById('modalArrow');
+    modalShow.innerHTML = `
+
+    
+    `;
+}
+
 
 document.getElementById('btn-see-more').addEventListener('click', function () {
     const spinner = document.getElementById('spinner');

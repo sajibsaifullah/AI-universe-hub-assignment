@@ -19,6 +19,30 @@
         <div class="text-center mt-3">
             <button type="button" class="btn btn-danger">Sort By Date</button>
         </div>
+        <section>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardModal">
+                Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </header>
     <main class="container">
         <!-- card section starts -->
@@ -36,9 +60,9 @@
         <section id="spinner" class="mt-4 d-none">
             <div class="d-flex justify-content-center">
                 <div class="spinner-border text-success" role="status">
-                  <span class="visually-hidden">Loading...</span>
+                    <span class="visually-hidden">Loading...</span>
                 </div>
-              </div>
+            </div>
         </section>
         <!-- spinner ends -->
 

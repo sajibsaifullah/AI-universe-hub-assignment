@@ -2,7 +2,7 @@ const loadCardData = () => {
     fetch('https://openapi.programming-hero.com/api/ai/tools')
         .then(res => res.json())
         .then(data => displayCardData(data.data.tools.slice(0, 6)));
-}
+};
 
 const displayCardData = (cards) => {
     const cardContainer = document.getElementById('card-container');
@@ -35,14 +35,14 @@ const displayCardData = (cards) => {
         `;
         cardContainer.appendChild(cardDiv);
     });
-}
+};
 
 const fetchModalData = (id) => {
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
     fetch(url)
         .then(res => res.json())
         .then(data => showModalData(data));
-}
+};
 const showModalData = data => {
     const description = document.getElementById('description');
     description.innerText = data.data.description;
@@ -76,13 +76,15 @@ const showModalData = data => {
 
     const modalImage = document.getElementById('modal-image');
     modalImage.innerHTML = `
-        <img src="${data.data.image_link[0]}" class="card-img-top w-75 rounded-5" alt="...">
+        <img src="${data.data.image_link[0]}" class="card-img-top w-100 rounded-4" alt="...">
+        <p class="bg-danger w-auto px-2 rounded text-white position-absolute top-0 end-0 mt-3 me-3">${data.data.accuracy.score * 100}% <span>accuracy</span></p>
     `;
     
     document.getElementById('title').innerText = data.data.input_output_examples ? data.data.input_output_examples[0].input : "Can you give any example?";
     document.getElementById('text').innerText = data.data.input_output_examples ? data.data.input_output_examples[0].output : "No! Not Yet! Take a break!!!";
     
-}
+    console.log(data.data.accuracy);
+};
 
 
 document.getElementById('btn-see-more').addEventListener('click', function () {
@@ -96,6 +98,6 @@ document.getElementById('btn-see-more').addEventListener('click', function () {
     const seMore = document.getElementById('btn-see-more');
     seMore.classList.add('d-none');
     spinner.classList.add('d-none');
-})
+});
 
 loadCardData();

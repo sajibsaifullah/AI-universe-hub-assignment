@@ -38,10 +38,19 @@ const displayCardData = (cards) => {
     });
 }
 
-const displayAllCard = () => {
+document.getElementById('btn-see-more').addEventListener('click', function () {
     fetch('https://openapi.programming-hero.com/api/ai/tools')
         .then(res => res.json())
         .then(data => displayCardData(data.data.tools));
-}
+
+    const seMore = document.getElementById('btn-see-more');
+    seMore.classList.add('d-none');
+})
+
+// const displayAllCard = () => {
+//     fetch('https://openapi.programming-hero.com/api/ai/tools')
+//         .then(res => res.json())
+//         .then(data => displayCardData(data.data.tools));
+// }
 
 loadCardData();

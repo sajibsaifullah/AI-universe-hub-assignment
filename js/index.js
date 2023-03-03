@@ -63,7 +63,6 @@ const showModalData = data => {
             <li><small>${data.data.features[1].feature_name}</small></li>
             <li><small>${data.data.features[2].feature_name}</small></li>
             <li><small>${data.data.features[3].feature_name}</small></li>
-            <li><small>${data.data.features[4] ? data.data.features[4].feature_name : "No data found"}</small></li>
     `;
     featureContainer.appendChild(featureUl);
 
@@ -102,11 +101,5 @@ document.getElementById('btn-see-more').addEventListener('click', function () {
     seMore.classList.add('d-none');
     spinner.classList.add('d-none');
 })
-
-// const displayAllCard = () => {
-//     fetch('https://openapi.programming-hero.com/api/ai/tools')
-//         .then(res => res.json())
-//         .then(data => displayCardData(data.data.tools));
-// }
 
 loadCardData();

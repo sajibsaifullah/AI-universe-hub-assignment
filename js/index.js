@@ -29,7 +29,7 @@ const displayCardData = (cards) => {
                         ${card.published_in}
                     </p>
                 </div>
-                <i id="modalArrow" onclick="fetchModalData('${card.id}')" class="fa-solid fa-arrow-right-long text-danger" data-bs-toggle="modal" data-bs-target="#cardModal"></i>
+                <i onclick="fetchModalData('${card.id}')" class="fa-solid fa-arrow-right-long text-danger" data-bs-toggle="modal" data-bs-target="#cardModal"></i>
             </div>
         </div>
         `;
@@ -45,12 +45,21 @@ const fetchModalData = (id) => {
         .then(data => showModalData(data));
 }
 const showModalData = data => {
-    // console.log(data);
-    const modalShow = document.getElementById('modalArrow');
-    modalShow.innerHTML = `
+    const description = document.getElementById('description');
+    description.innerText = data.data.description;
+
+    document.getElementById('basic-price').innerText = data.data.pricing[0].price;
+    document.getElementById('basic-plan').innerText = data.data.pricing[0].plan;
+
+    document.getElementById('pro-price').innerText = data.data.pricing[1].price;
+    document.getElementById('pro-plan').innerText = data.data.pricing[1].plan;
+
+    document.getElementById('enterprise-price').innerText = data.data.pricing[2].price;
+    document.getElementById('enterprise-plan').innerText = data.data.pricing[2].plan;
 
     
-    `;
+
+    console.log(data.data.features[1].feature_name);
 }
 
 

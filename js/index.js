@@ -77,13 +77,16 @@ const showModalData = data => {
     integrationContainer.appendChild(integrationUl);
 
     const modalImage = document.getElementById('modal-image');
-    console.log(modalImage);
+    // console.log(modalImage);
     // const img = document.createElement('img');
     modalImage.innerHTML = `
         <img src="${data.data.image_link[0]}" class="card-img-top w-75 rounded-5" alt="...">
     `;
     
-    console.log(data.data.input_output_examples[0].input);
+    document.getElementById('title').innerText = data.data.input_output_examples ? data.data.input_output_examples[0].input : "Can you give any example?";
+    document.getElementById('text').innerText = data.data.input_output_examples ? data.data.input_output_examples[0].output : "No! Not Yet! Take a break!!!";
+    
+    // console.log(data.data);
 }
 
 

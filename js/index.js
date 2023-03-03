@@ -39,12 +39,16 @@ const displayCardData = (cards) => {
 }
 
 document.getElementById('btn-see-more').addEventListener('click', function () {
+    const spinner = document.getElementById('spinner');
+    spinner.classList.remove('d-none');
+
     fetch('https://openapi.programming-hero.com/api/ai/tools')
         .then(res => res.json())
         .then(data => displayCardData(data.data.tools));
 
     const seMore = document.getElementById('btn-see-more');
     seMore.classList.add('d-none');
+    spinner.classList.add('d-none');
 })
 
 // const displayAllCard = () => {

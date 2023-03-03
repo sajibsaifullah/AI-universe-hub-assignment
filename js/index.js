@@ -49,13 +49,13 @@ const showModalData = data => {
     description.innerText = data.data.description;
 
     document.getElementById('basic-price').innerText = data.data.pricing ? data.data.pricing[0].price : "Free of cost";
-    document.getElementById('basic-plan').innerText = data.data.pricing ? data.data.pricing[0].plan : "";
+    document.getElementById('basic-plan').innerText = data.data.pricing ? data.data.pricing[0].plan : "Basic";
 
     document.getElementById('pro-price').innerText = data.data.pricing ? data.data.pricing[1].price : "Free of cost";
-    document.getElementById('pro-plan').innerText = data.data.pricing ? data.data.pricing[1].plan : "";
+    document.getElementById('pro-plan').innerText = data.data.pricing ? data.data.pricing[1].plan : "Pro";
 
     document.getElementById('enterprise-price').innerText = data.data.pricing ? data.data.pricing[2].price : "Free of cost";
-    document.getElementById('enterprise-plan').innerText = data.data.pricing ? data.data.pricing[2].plan : "";
+    document.getElementById('enterprise-plan').innerText = data.data.pricing ? data.data.pricing[2].plan : "Enterprise";
 
     const featureContainer = document.getElementById('feature-container');
     const featureUl = document.createElement('ul');
@@ -63,19 +63,27 @@ const showModalData = data => {
             <li><small>${data.data.features[1].feature_name}</small></li>
             <li><small>${data.data.features[2].feature_name}</small></li>
             <li><small>${data.data.features[3].feature_name}</small></li>
+            <li><small>${data.data.features[4] ? data.data.features[4].feature_name : "No data found"}</small></li>
     `;
     featureContainer.appendChild(featureUl);
 
     const integrationContainer = document.getElementById('integration-container');
     const integrationUl = document.createElement('ul');
     integrationContainer.innerHTML = `
-            <li><small>${data.data.integrations[0] ? data.data.integrations[0] : "No data found"}</small></li>
-            <li><small>${data.data.integrations[1] ? data.data.integrations[1] : "No data found"}</small></li>
-            <li><small>${data.data.integrations[2] ? data.data.integrations[2] : "No data found"}</small></li>
+            <li><small>${data.data.integrations ? data.data.integrations[0] : "No data found"}</small></li>
+            <li><small>${data.data.integrations ? data.data.integrations[1] : "No data found"}</small></li>
+            <li><small>${data.data.integrations ? data.data.integrations[2] : "No data found"}</small></li>
     `;
     integrationContainer.appendChild(integrationUl);
+
+    const modalImage = document.getElementById('modal-image');
+    console.log(modalImage);
+    // const img = document.createElement('img');
+    modalImage.innerHTML = `
+        <img src="${data.data.image_link[0]}" class="card-img-top w-75 rounded-5" alt="...">
+    `;
     
-    // console.log(data.data.features.forEach);
+    console.log(data.data.input_output_examples[0].input);
 }
 
 

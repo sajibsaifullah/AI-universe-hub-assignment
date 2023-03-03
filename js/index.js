@@ -48,18 +48,34 @@ const showModalData = data => {
     const description = document.getElementById('description');
     description.innerText = data.data.description;
 
-    document.getElementById('basic-price').innerText = data.data.pricing[0].price;
-    document.getElementById('basic-plan').innerText = data.data.pricing[0].plan;
+    document.getElementById('basic-price').innerText = data.data.pricing ? data.data.pricing[0].price : "Free of cost";
+    document.getElementById('basic-plan').innerText = data.data.pricing ? data.data.pricing[0].plan : "";
 
-    document.getElementById('pro-price').innerText = data.data.pricing[1].price;
-    document.getElementById('pro-plan').innerText = data.data.pricing[1].plan;
+    document.getElementById('pro-price').innerText = data.data.pricing ? data.data.pricing[1].price : "Free of cost";
+    document.getElementById('pro-plan').innerText = data.data.pricing ? data.data.pricing[1].plan : "";
 
-    document.getElementById('enterprise-price').innerText = data.data.pricing[2].price;
-    document.getElementById('enterprise-plan').innerText = data.data.pricing[2].plan;
+    document.getElementById('enterprise-price').innerText = data.data.pricing ? data.data.pricing[2].price : "Free of cost";
+    document.getElementById('enterprise-plan').innerText = data.data.pricing ? data.data.pricing[2].plan : "";
 
+    const featureContainer = document.getElementById('feature-container');
+    const featureUl = document.createElement('ul');
+    featureContainer.innerHTML = `
+            <li><small>${data.data.features[1].feature_name}</small></li>
+            <li><small>${data.data.features[2].feature_name}</small></li>
+            <li><small>${data.data.features[3].feature_name}</small></li>
+    `;
+    featureContainer.appendChild(featureUl);
+
+    const integrationContainer = document.getElementById('integration-container');
+    const integrationUl = document.createElement('ul');
+    integrationContainer.innerHTML = `
+            <li><small>${data.data.integrations[0] ? data.data.integrations[0] : "No data found"}</small></li>
+            <li><small>${data.data.integrations[1] ? data.data.integrations[1] : "No data found"}</small></li>
+            <li><small>${data.data.integrations[2] ? data.data.integrations[2] : "No data found"}</small></li>
+    `;
+    integrationContainer.appendChild(integrationUl);
     
-
-    console.log(data.data.features[1].feature_name);
+    // console.log(data.data.features.forEach);
 }
 
 

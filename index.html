@@ -35,7 +35,7 @@
         <section>
             <!-- Modal -->
             <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -44,7 +44,7 @@
                             <div class="row row-cols-1 row-cols-md-2 g-4">
                                 <div class="col">
                                     <div class="card h-100">
-                                        <p id="description" class="fw-bold px-2"></p>
+                                        <p id="description" class="fw-bold px-2 mt-2"></p>
                                         <div class="d-flex justify-content-center gap-4 px-5">
                                             <div id="basic" class="text-success text-center">
                                                 <p id="basic-price" class="m-0 p-0"></p>
@@ -59,8 +59,19 @@
                                                 <p id="enterprise-plan" class="m-0 p-0"></p>
                                             </div>
                                         </div>
-                                        <div id="single-feature">
+                                        <div class="d-flex justify-content-between gap-4 px-4 mt-4">
+                                            <div id="single-feature">
+                                                <p class="fw-bold m-0 p-0">Features</p>
+                                                <div id="feature-container">
 
+                                                </div>
+                                            </div>
+                                            <div id="single-integration">
+                                                <p class="fw-bold m-0 p-0">Integrations</p>
+                                                <div id="integration-container">
+
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

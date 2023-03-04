@@ -83,11 +83,10 @@ const showModalData = data => {
     if (data.data.accuracy.score === null) {
         accuracy.classList.add('d-none');
     }
-    
+
     document.getElementById('title').innerText = data.data.input_output_examples ? data.data.input_output_examples[0].input : "Can you give any example?";
     document.getElementById('text').innerText = data.data.input_output_examples ? data.data.input_output_examples[0].output : "No! Not Yet! Take a break!!!";
-    
-    console.log(data.data.accuracy);
+
 };
 
 

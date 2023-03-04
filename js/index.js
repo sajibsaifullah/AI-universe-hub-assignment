@@ -77,8 +77,12 @@ const showModalData = data => {
     const modalImage = document.getElementById('modal-image');
     modalImage.innerHTML = `
         <img src="${data.data.image_link[0]}" class="card-img-top w-100 rounded-4" alt="...">
-        <p class="bg-danger w-auto px-2 rounded text-white position-absolute top-0 end-0 mt-3 me-3">${data.data.accuracy.score * 100}% <span>accuracy</span></p>
+        <p id="accuracy" class="bg-danger w-auto px-2 rounded text-white position-absolute top-0 end-0 mt-3 me-3">${data.data.accuracy.score * 100}% <span>accuracy</span></p>
     `;
+
+    if (data.data.accuracy.score === null) {
+        accuracy.classList.add('d-none');
+    }
     
     document.getElementById('title').innerText = data.data.input_output_examples ? data.data.input_output_examples[0].input : "Can you give any example?";
     document.getElementById('text').innerText = data.data.input_output_examples ? data.data.input_output_examples[0].output : "No! Not Yet! Take a break!!!";

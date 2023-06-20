@@ -35,6 +35,9 @@ const displayCardData = (cards) => {
         `;
         cardContainer.appendChild(cardDiv);
     });
+    // toggleSpinner(false);
+    const spinner = document.getElementById('spinner');
+    spinner.classList.add('d-none');
 };
 
 const fetchModalData = (id) => {
@@ -93,14 +96,23 @@ const showModalData = data => {
 document.getElementById('btn-see-more').addEventListener('click', function () {
     const spinner = document.getElementById('spinner');
     spinner.classList.remove('d-none');
-
+    // toggleSpinner(true);
     fetch('https://openapi.programming-hero.com/api/ai/tools')
         .then(res => res.json())
         .then(data => displayCardData(data.data.tools));
 
     const seMore = document.getElementById('btn-see-more');
     seMore.classList.add('d-none');
-    spinner.classList.add('d-none');
+    
 });
+
+// const toggleSpinner = isLoading => {
+//     const spinner = document.getElementById('spinner');
+//     if (isLoading) {
+//         spinner.classList.remove('d-none');
+//     } else {
+//         spinner.classList.add('d-none');
+//     }
+// }
 
 loadCardData();
